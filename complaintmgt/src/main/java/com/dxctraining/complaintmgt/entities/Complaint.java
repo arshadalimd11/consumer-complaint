@@ -16,6 +16,7 @@ public class Complaint {
 	private String description;
 	
 	private int consumerId;
+	
 
 	public Complaint() {
 	}
