@@ -1,23 +1,28 @@
-package com.dxctraining.empmgt;
+package com.dxctraining;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-@EnableDiscoveryClient
+/**
+ * @SpringBootapplication equivalent to 3 things
+ * 1)@Configuration : so we dont have to provide on our own
+ * 2)@ComponentScan: so we dont have to provide on our own
+ * 3) @AutoConfiguration so we dont have to provide on our own
+ */
 @SpringBootApplication
-public class DemoApplication {
+public class ProjectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+		SpringApplication.run(ProjectApplication.class, args);
 
+	}
 	/**
 	 *
 	 * for handling cross origin requests
@@ -33,8 +38,6 @@ public class DemoApplication {
 		src.registerCorsConfiguration("/**",configuration);
 		return new CorsFilter(src);
 	}
-
-	@LoadBalanced
 	@Bean
 	public RestTemplate restTemplate(){
 		return new RestTemplate();

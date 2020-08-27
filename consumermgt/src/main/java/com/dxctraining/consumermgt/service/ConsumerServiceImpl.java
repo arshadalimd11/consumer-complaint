@@ -24,7 +24,7 @@ public class ConsumerServiceImpl implements IConsumerService {
 		consumer = dao.add(consumer);
 		return consumer;
 	}
-
+	@Override
 	private void validateConsumer(Consumer consumer) {
 		if(consumer == null) {
 			throw new ConsumerNotFoundException("consumer should not be null");
@@ -38,7 +38,7 @@ public class ConsumerServiceImpl implements IConsumerService {
 		Consumer consumer = dao.findConsumerById(id);
 		return consumer;
 	}
-
+	@Override
 	private void validateId(int id) {
 		if(id == 0) {
 			throw new InvalidArgumentException("id should not be null");
