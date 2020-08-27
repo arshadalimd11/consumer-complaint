@@ -3,8 +3,10 @@ package com.dxctraining.consumermgt.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="consumer_details")
 public class Consumer {
 	
 	@Id
@@ -49,6 +51,7 @@ public class Consumer {
 		return isEquals;
 	}
 	
+	@Override
 	public int hashCode() {
 		return id;
 	}
